@@ -10,7 +10,7 @@ Nginx-1.8.0 (unofficial)  with http_push_module
 
 Additional libraries:
 ---------------------
-- for compiler process:
+- needs for compiler process:
 **! libraries installed automatically with your approval !**
 
 * `libgd2-xpm-dev`
