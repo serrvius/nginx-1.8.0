@@ -58,6 +58,45 @@ or
 ```
 service nginx {start|stop|restart}
 ```
+
+WARNING!
+--------
+
+Web server gave working with: `php5-cgi` or `php5-fpm`
+
+*Pay attention to the following lines from files*
+
+php5-fpm: `/etc/php5/fpm/pool.d/www.conf`
+
+or
+
+php5-cgi: `/etc/php5/cgi/pool.d/www.conf`
+
+lines:
+* verion-1: `listen = /var/run/php5-fpm.sock`
+
+or
+
+* version-2: `listen = 127.0.0.1:9000`
+
+nginx: `/var/nginx/sites-availabled/<virtualHostConfig>`
+
+lines:
+* version-1: `fastcgi_pass unix:/var/run/php5-fpm.sock;`
+
+or
+
+* version-2: `fastcgi_pass   127.0.0.1:9000;`
+
+configuration should be similar:
+
+(php-version) = (nginx-version)
+
+	`version-1 = version-1`	
+	
+or
+	
+	`version-2 = version-2`
 	
 #Install 
 
