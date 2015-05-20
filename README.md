@@ -8,8 +8,9 @@ Nginx-1.8.0 (unofficial)  with http_push_module
 * [pcre-8.37] (http://sourceforge.net/projects/pcre/files/)
 * [zlib-1.2.8] (http://zlib.net/zlib-1.2.8.tar.gz)
 
-Additional libraries (for compiler process):
---------------------------------------------
+Additional libraries:
+---------------------
+- for compiler process:
 
 * `libgd2-xpm-dev` 
 * `checkinstall`
@@ -21,10 +22,10 @@ Additional libraries (for compiler process):
 Nginx install on path:
 ----------------------
  
- * `**nginx_path:** /etc/nginx`
- * `**logs:** /var/log/nginx`
- * `**www:** /var/www/html`
- * `**libs:** /user/local/nginx/libs`
+ * `nginx_path: /etc/nginx`
+ * `logs: /var/log/nginx`
+ * `www: /var/www/html`
+ * `libs: /user/local/nginx/libs`
  
 Run script:
 -----------
@@ -39,13 +40,13 @@ service nginx {start|stop|restart}
 	
 #Install 
 
-  ```	
-  sudo ./install.sh
-  ```	
+```	
+sudo ./install.sh
+```	
   
 Publish/Subscribe channel:
 --------------------------
- example - add in virtual host configure
+ - example - add in virtual host configure
 
 ```
 location /channelPublish {
@@ -82,15 +83,17 @@ Send info in publish channel with command:
  - example in php
 
 ```
-$c = curl_init( $address . '/channelPublish?channel=' . $channel );
+$data = "<any data type>";
+$c = curl_init( 'http://localhost/channelPublish?channel=' . $channel );
 curl_setopt($c, CURLOPT_RETURNTRANSFER, false);
 curl_setopt($c, CURLOPT_POST, true);
 curl_setopt($c, CURLOPT_POSTFIELDS, !is_string($data) ? json_encode($data) : $data );
 $r = curl_exec($c);
 ```
 		
-Listen subscribe channel from client side (example in javascript with [jQuery](https://jquery.com/) ):
-------------------------------------------------------------------------------------------------------
+Listen subscribe channel from client side:
+------------------------------------------
+  - example in javascript with [jQuery](https://jquery.com/)
 	
 ```
 $.get('/channelSubscribe?channel=<channelId>',function(response){
