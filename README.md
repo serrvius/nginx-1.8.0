@@ -12,7 +12,7 @@ Additional libraries:
 ---------------------
 - for compiler process:
 
-* `libgd2-xpm-dev` 
+* `libgd2-xpm-dev`
 * `checkinstall`
 * `libssl-dev` 
 * `make` 
@@ -26,6 +26,26 @@ Nginx install on path:
  * `logs: /var/log/nginx`
  * `www: /var/www/html`
  * `libs: /user/local/nginx/libs`
+ * `sites-availabled: /etc/nginx/sites-availabled`
+ * `sites-enabled: /etc/nginx/sites-enabled`
+
+Nginx virtual host enable/disable:
+----------------------------------
+ 
+ -create new virtual host in `sites-availabled` with `<nameHost>`
+ 
+* enable virtualHost
+ 
+```
+ ngxensite <nameHost>
+``` 
+
+* disable virtualHost
+ 
+```
+ ngxdissite <nameHost>
+``` 
+
  
 Run script:
 -----------
