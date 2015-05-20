@@ -1,0 +1,4 @@
+nginxensite(){ sudo ln -s #NGINX_PATH#/sites-available/$1 #NGINX_PATH#/sites-enabled/$1; echo ""; echo "Please reload nginx for activate host"; echo "";}
+nginxdissite(){ sudo rm  #NGINX_PATH#/sites-enabled/$1; echo ""; echo "Please reload nginx for deactivate host"; echo ""; }
+alias ngxensite=nginxensite
+alias ngxdissite=nginxdissite
